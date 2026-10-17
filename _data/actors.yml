@@ -1,0 +1,20 @@
+- slug: google-trends-scraper
+  name: Google Trends Scraper
+  icon: google-trends.png
+  blurb: Interest over time, by region and rising related queries for any keyword, without pytrends or 429 errors.
+  repo: assa83/google-trends-api-python
+- slug: google-ads-transparency-scraper
+  name: Google Ads Transparency Scraper
+  icon: google-ads-transparency.png
+  blurb: Every ad an advertiser runs on Google Search, YouTube and Display, from the Ads Transparency Center.
+  repo: assa83/google-ads-transparency-api
+- slug: google-hotels-scraper
+  name: Google Hotels Scraper
+  icon: google-hotels.png
+  blurb: Hotel prices by date, per booking site, plus ratings and amenities, straight from Google Hotels.
+  repo: assa83/google-hotels-prices-api
+- slug: linkedin-ad-library-scraper
+  name: LinkedIn Ad Library Scraper
+  icon: linkedin-ad-library.png
+  blurb: Competitor ads from the LinkedIn Ad Library with copy, creatives, dates and targeting.
+  repo: assa83/linkedin-ad-library-api

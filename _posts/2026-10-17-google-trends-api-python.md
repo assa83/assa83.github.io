@@ -1,6 +1,7 @@
 ---
 title: "Google Trends API in Python: a working pytrends alternative (2026)"
 description: "pytrends is archived and 429 errors are common. Here is a small, tested Python script that exports Google Trends interest over time and rising queries to CSV."
+actor: google-trends-scraper
 tags: python, googletrends, webscraping, api
 ---
 

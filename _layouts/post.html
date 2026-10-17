@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{% assign a = site.data.actors | where: "slug", page.actor | first %}
+<article class="post">
+  <header class="post-head wrap-text">
+    <a class="back" href="{{ '/' | relative_url }}#tutorials"><span aria-hidden="true">←</span> All tutorials</a>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    <p class="meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      {% for t in page.tags %}<span class="tag">#{{ t | remove: "," }}</span>{% endfor %}
+    </p>
+    {% if a %}
+    <a class="uses" href="https://apify.com/{{ site.apify_user }}/{{ a.slug }}">
+      <img src="{{ '/assets/img/' | append: a.icon | relative_url }}" alt="" width="32" height="32">
+      <span>Uses <strong>{{ a.name }}</strong> on Apify</span>
+    </a>
+    {% endif %}
+  </header>
+  <div class="prose wrap-text">
+    {{ content }}
+  </div>
+  {% if a %}
+  <aside class="try wrap-text" aria-labelledby="try-title">
+    <img src="{{ '/assets/img/' | append: a.icon | relative_url }}" alt="" width="72" height="72">
+    <div>
+      <p class="kicker">Try it yourself</p>
+      <h2 id="try-title">{{ a.name }}</h2>
+      <p>{{ a.blurb }} Run it from the Apify console with a free account, or call it from your own code.</p>
+      <div class="tool-links">
+        <a class="btn" href="https://apify.com/{{ site.apify_user }}/{{ a.slug }}">Try on Apify <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="https://github.com/{{ a.repo }}">Code examples on GitHub</a>
+      </div>
+    </div>
+  </aside>
+  {% endif %}
+</article>

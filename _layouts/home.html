@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+    <p class="kicker">Developer tutorials · Python · JavaScript · n8n · AI agents</p>
+    <h1>Get Google and LinkedIn data into your scripts, sheets and&nbsp;agents.</h1>
+    <p class="lede">Step-by-step guides with copy-paste code for Google Trends, Google Ads Transparency, Google Hotels and the LinkedIn Ad Library. Every guide links to an open-source example repo you can clone and run.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#tutorials">Read the tutorials</a>
+      <a class="btn btn-ghost" href="https://github.com/{{ site.github_user }}">Browse the code</a>
+    </div>
+    <ul class="hero-icons" aria-hidden="true">
+      {% for a in site.data.actors %}<li><img src="{{ '/assets/img/' | append: a.icon | relative_url }}" alt="" width="56" height="56"></li>{% endfor %}
+    </ul>
+    </div>
+    <figure class="hero-code" aria-label="Example: calling the Google Trends Scraper from Python">
+      <figcaption><span></span><span></span><span></span> trends.py</figcaption>
+<pre class="highlight"><code><span class="kn">from</span> <span class="nn">apify_client</span> <span class="kn">import</span> <span class="n">ApifyClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">ApifyClient</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">actor</span><span class="p">(</span>
+    <span class="s">"lagenuina_agency/google-trends-scraper"</span>
+<span class="p">).</span><span class="nf">call</span><span class="p">(</span><span class="n">run_input</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"searchTerms"</span><span class="p">:</span> <span class="p">[</span><span class="s">"n8n"</span><span class="p">,</span> <span class="s">"zapier"</span><span class="p">],</span>
+    <span class="s">"geo"</span><span class="p">:</span> <span class="s">"US"</span><span class="p">,</span>
+    <span class="s">"timeRange"</span><span class="p">:</span> <span class="s">"today 12-m"</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="c1"># → interest over time + rising queries, as JSON</span></code></pre>
+    </figure>
+  </div>
+</section>
+
+<section id="tools" class="block">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>The tools</h2>
+      <p>Hosted scrapers we build and maintain on Apify. Call them from code, n8n, Make or an MCP-enabled agent; you pay per result.</p>
+    </div>
+    <div class="tools">
+      {% for a in site.data.actors %}{% include actor-card.html a=a %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="tutorials" class="block block-alt">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Tutorials</h2>
+      <p>Newest first. <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>.</p>
+    </div>
+    <ol class="posts">
+      {% for post in site.posts %}
+      {% assign a = site.data.actors | where: "slug", post.actor | first %}
+      <li>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {% if a %}<img src="{{ '/assets/img/' | append: a.icon | relative_url }}" alt="" width="48" height="48" loading="lazy">{% endif %}
+          <span class="post-text">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="post-title">{{ post.title }}</span>
+            <span class="post-desc">{{ post.description }}</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

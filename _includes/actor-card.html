@@ -1,0 +1,9 @@
+<article class="tool">
+  <img src="{{ '/assets/img/' | append: include.a.icon | relative_url }}" alt="" width="64" height="64" loading="lazy">
+  <h3><a href="https://apify.com/{{ site.apify_user }}/{{ include.a.slug }}">{{ include.a.name }}</a></h3>
+  <p>{{ include.a.blurb }}</p>
+  <div class="tool-links">
+    <a class="btn btn-sm" href="https://apify.com/{{ site.apify_user }}/{{ include.a.slug }}">Try on Apify <span aria-hidden="true">→</span></a>
+    <a class="btn btn-sm btn-ghost" href="https://github.com/{{ include.a.repo }}">Code examples</a>
+  </div>
+</article>

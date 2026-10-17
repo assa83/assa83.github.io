@@ -1,6 +1,7 @@
 ---
 title: "Weekly Google Trends report in Google Sheets with n8n (no code)"
 description: "Import one n8n workflow and get Google Trends interest for your keywords appended to a Google Sheet every Monday morning."
+actor: google-trends-scraper
 tags: n8n, googletrends, automation, nocode
 ---
 
