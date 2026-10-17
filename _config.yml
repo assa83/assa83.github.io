@@ -1,0 +1,7 @@
+title: Quelli di Carne Genuina — scraping & data tutorials
+description: Tested tutorials for Google Trends, Google Ads Transparency, Google Hotels and LinkedIn Ad Library data with Python, JavaScript, n8n and AI agents.
+url: https://assa83.github.io
+theme: minima
+permalink: /:title/
+plugins: [jekyll-seo-tag, jekyll-sitemap, jekyll-feed]
+author: Quelli di Carne Genuina
