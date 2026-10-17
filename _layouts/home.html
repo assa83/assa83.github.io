@@ -5,8 +5,8 @@ layout: default
   <div class="wrap hero-grid">
     <div>
     <p class="kicker">Developer tutorials · Python · JavaScript · n8n · AI agents</p>
-    <h1>Get Google and LinkedIn data into your scripts, sheets and&nbsp;agents.</h1>
-    <p class="lede">Step-by-step guides with copy-paste code for Google Trends, Google Ads Transparency, Google Hotels and the LinkedIn Ad Library. Every guide links to an open-source example repo you can clone and run.</p>
+    <h1>Get ads, prices, traffic and transcripts into your scripts, sheets and&nbsp;agents.</h1>
+    <p class="lede">Step-by-step guides with tested, copy-paste code for {{ site.data.actors.size }} hosted scrapers: ad libraries (Google, Meta, TikTok, LinkedIn), competitor research, flight and hotel prices, Australian grocery prices, YouTube transcripts and more. Every guide links to an open-source example repo you can clone and run.</p>
     <div class="hero-cta">
       <a class="btn" href="#tutorials">Read the tutorials</a>
       <a class="btn btn-ghost" href="https://github.com/{{ site.github_user }}">Browse the code</a>
@@ -38,9 +38,14 @@ layout: default
       <h2>The tools</h2>
       <p>Hosted scrapers we build and maintain on Apify. Call them from code, n8n, Make or an MCP-enabled agent; you pay per result.</p>
     </div>
+    {% assign families = site.data.actors | map: "family" | uniq %}
+    {% for f in families %}
+    <h3 class="family">{{ f }}</h3>
     <div class="tools">
-      {% for a in site.data.actors %}{% include actor-card.html a=a %}{% endfor %}
+      {% assign fam_actors = site.data.actors | where: "family", f %}
+      {% for a in fam_actors %}{% include actor-card.html a=a %}{% endfor %}
     </div>
+    {% endfor %}
   </div>
 </section>
 
