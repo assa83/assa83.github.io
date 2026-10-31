@@ -4,7 +4,6 @@ layout: default
 {% assign a = site.data.actors | where: "slug", page.actor | first %}
 <article class="post">
   <header class="post-head wrap-text">
-    <a class="back" href="{{ '/' | relative_url }}#tutorials"><span aria-hidden="true">←</span> All tutorials</a>
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
     <p class="meta">
@@ -36,4 +35,5 @@ layout: default
     </div>
   </aside>
   {% endif %}
+  <p class="wrap-text"><a class="back" href="{{ '/' | relative_url }}#tutorials"><span aria-hidden="true">←</span> All tutorials</a></p>
 </article>
