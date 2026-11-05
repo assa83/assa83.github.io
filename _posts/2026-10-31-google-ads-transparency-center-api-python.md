@@ -176,7 +176,7 @@ found_on,creativeId,advertiserName,domain,format,firstShown,lastShown,shownForDa
 2026-10-31,CR05381931924145045505,Grocery Delivery E-Services USA Inc.,hellofresh.com,IMAGE,2026-05-13T13:22:56.000Z,2026-10-31T07:00:26.000Z,171,,https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&...,https://adstransparency.google.com/advertiser/AR00930880903813529601/creative/CR05381931924145045505?region=US
 ```
 
-Each row has either an `imageUrl` (a rendered image of the ad) or a `previewUrl` (Google's own preview script), plus `adUrl` to open the creative in the Transparency Center.
+Each row has either an `imageUrl` (a rendered image of the ad) or a `previewUrl` (Google's own preview script), plus `adUrl` to open the creative in the Transparency Center. The format doesn't decide which one you get: text ads almost always come as images, video ads almost always as scripts, and image ads can be either. The script doesn't display on its own, so use `adUrl` to see those ads.
 
 ## Schedule it weekly
 
@@ -244,7 +244,7 @@ Pay per ad, no start fee: $1.60 per 1,000 ads on the Apify Free plan, down to $1
 ## Limits worth knowing
 
 - **No spend, impressions or clicks.** The Transparency Center does not publish them for commercial ads, so no tool can give them to you.
-- **No ad copy as plain text.** Text, video and rich ads come as Google-hosted previews (`imageUrl` or `previewUrl`), not as a headline and description string.
+- **No ad copy as plain text.** Every ad comes as a Google-hosted preview (`imageUrl` or `previewUrl`), not as a headline and description string.
 - **One region per run.** For several countries, run once per country; the script already keeps a separate memory per country.
 - **Brand names can be ambiguous.** A brand-name query can match several advertiser accounts, or a similarly named one. Use the domain or the exact `AR…` advertiser ID.
 - **The monitor only sees what it scans.** New ads are detected among the `--max` ads scanned per run. Keep it above the number of ads the competitor runs.
